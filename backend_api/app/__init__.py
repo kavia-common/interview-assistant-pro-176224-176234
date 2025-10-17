@@ -51,7 +51,9 @@ def create_app():
         "bearerAuth",
         {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"},
     )
-    api.spec.options["info"]["description"] = (
+    # Ensure 'info' section exists before setting description to avoid KeyError during early initialization
+    info = api.spec.options.setdefault("info", {})
+    info["description"] = (
         "API for virtual interview assistant. "
         "All protected routes require Authorization: Bearer <token>."
     )
