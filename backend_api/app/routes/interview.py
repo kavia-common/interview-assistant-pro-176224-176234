@@ -2,8 +2,8 @@ from flask_smorest import Blueprint, abort
 from flask.views import MethodView
 from marshmallow import Schema, fields
 from flask import g
-from ...app.db import execute, query_one
-from ...app.services.nlp import score_answer
+from ..db import execute, query_one
+from ..services.nlp import score_answer
 
 blp = Blueprint("Interview", "interview", url_prefix="/interview", description="Interview flow management")
 

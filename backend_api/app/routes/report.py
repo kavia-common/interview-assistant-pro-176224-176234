@@ -2,7 +2,7 @@ from flask_smorest import Blueprint, abort
 from flask.views import MethodView
 from marshmallow import Schema, fields
 from flask import g
-from ...app.db import query_one, query_all
+from ..db import query_one, query_all
 
 blp = Blueprint("Report", "report", url_prefix="/report", description="Reports and history")
 

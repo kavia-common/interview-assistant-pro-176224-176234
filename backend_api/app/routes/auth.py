@@ -1,8 +1,8 @@
 from flask_smorest import Blueprint, abort
 from flask.views import MethodView
 from marshmallow import Schema, fields
-from ...app.db import query_one, execute
-from ...app.auth import create_password_hash, verify_password, create_jwt_token
+from ..db import query_one, execute
+from ..auth import create_password_hash, verify_password, create_jwt_token
 
 blp = Blueprint("Auth", "auth", url_prefix="/auth", description="Authentication endpoints")
 
