@@ -10,6 +10,7 @@ from .config import get_config
 PUBLIC_PATHS = [
     r"^/$",
     r"^/_ping$",
+    # OpenAPI/Swagger UI must remain publicly accessible
     r"^/docs.*$",
     r"^/static/.*$",
     r"^/auth/register$",

@@ -28,7 +28,13 @@ def _int(env_name: str, default: int) -> int:
 
 # PUBLIC_INTERFACE
 def get_config() -> Config:
-    """Return loaded configuration from environment variables."""
+    """Return loaded configuration from environment variables.
+    Expected environment variables:
+      - DB_HOST, DB_PORT (default 5000), DB_USER, DB_PASSWORD, DB_NAME
+      - JWT_SECRET
+      - CORS_ORIGINS (comma-separated or single origin, default http://localhost:3000)
+      - PORT (backend port, default 3001)
+    """
     return Config(
         DB_TYPE=os.getenv("DB_TYPE", "mysql"),
         DB_HOST=os.getenv("DB_HOST", "localhost"),

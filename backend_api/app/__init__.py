@@ -34,9 +34,16 @@ def create_app():
         PROPAGATE_EXCEPTIONS=True,
     )
 
-    # CORS
+    # CORS: allow frontend origin and Authorization header
     cors_origins = cfg.CORS_ORIGINS
-    CORS(app, resources={r"/*": {"origins": cors_origins}}, supports_credentials=True)
+    CORS(
+        app,
+        resources={r"/*": {"origins": cors_origins}},
+        supports_credentials=True,
+        expose_headers=["Authorization"],
+        allow_headers=["Content-Type", "Authorization"],
+        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    )
 
     # API and tags
     api = Api(app)
